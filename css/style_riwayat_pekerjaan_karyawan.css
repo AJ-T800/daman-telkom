@@ -1,0 +1,386 @@
+/* Import font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; 
+    background-color: #FAFAFA;
+    color: #333;
+}
+
+/* === TOP NAVBAR === */
+.top-navbar {
+    background-color: #CC1F29;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    gap: 10px; 
+}
+
+.nav-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 8px 15px; 
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2); 
+    cursor: pointer;
+}
+
+/* === DROPDOWN HAMBURGER MENU === */
+.nav-right .dropbtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: 0.3s;
+}
+
+.nav-right .dropbtn:hover { opacity: 0.8; }
+
+.dropdown { position: relative; display: inline-block; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+    z-index: 100;
+    border-radius: 4px;
+    overflow: hidden;
+    top: 40px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.dropdown-content a:hover { background-color: #f9f9f9; }
+.show { display: block; }
+
+/* === MAIN CONTAINER === */
+.main-container {
+    padding: 20px 40px; 
+}
+
+/* === FILTER BOX === */
+.filter-box {
+    background-color: #E9ECEF;
+    padding: 20px 25px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    
+    /* UBAH bagian flex-wrap menjadi nowrap agar elemen tetap satu baris */
+    flex-wrap: nowrap;
+    
+    /* TAMBAHKAN ini agar scrollbar horizontal otomatis muncul saat di-zoom */
+    overflow-x: auto;
+    scrollbar-width: thin; /* Membuat scrollbar lebih tipis di beberapa browser */
+    
+    margin-bottom: 25px;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #7a7a7a;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.dashboard-header .greeting {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.dashboard-header .header-logo {
+    height: 45px;
+    object-fit: contain;
+}
+
+.filter-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    /* TAMBAHKAN INI agar kotak input form tidak mengecil/gepeng saat di-zoom */
+    flex-shrink: 0; 
+}
+.filter-group label { font-size: 13px; font-weight: 700; color: #000; }
+.filter-group select, 
+.filter-group input[type="date"], 
+.filter-group input[type="text"] {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    background-color: #fff;
+    min-width: 180px;
+    box-sizing: border-box; /* Ditambahkan agar perhitungan padding aman */
+}
+.filter-group input[type="text"] { min-width: 250px; }
+
+.filter-actions { 
+    display: flex; 
+    gap: 10px; 
+    /* TAMBAHKAN INI agar area tombol Cari & Reset ukurannya tetap utuh */
+    flex-shrink: 0; 
+}
+.btn-cari {
+    padding: 10px 20px;
+    background-color: #3B5B8D;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-cari:hover { background-color: #2c446b; }
+
+.btn-reset {
+    padding: 10px 20px;
+    background-color: #CC1F29;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block;
+    transition: 0.2s;
+}
+.btn-reset:hover { background-color: #a01c29; }
+
+.btn-ambil {
+    background-color: #28A745;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-block;
+}
+.btn-ambil:hover { background-color: #218838; }
+
+/* === TABEL BISA DI-SCROLL (HORIZONTAL) === */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; 
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    background: linear-gradient(to right, white 30%, rgba(255,255,255,0)), 
+                linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, 
+                radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), 
+                radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+    background-repeat: no-repeat;
+    background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+    background-attachment: local, local, scroll, scroll;
+}
+
+.table-custom {
+    width: auto; 
+    min-width: 1300px; 
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #ccc;
+}
+
+/* === FITUR RESIZE KOLOM === */
+.table-custom th {
+    position: relative; /* Wajib ada untuk penempatan resizer */
+    background-color: #E2E2E2; 
+    font-weight: 700; 
+    color: #000;
+    white-space: nowrap; 
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.table-custom td {
+    white-space: nowrap; 
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.table-custom td b { font-weight: 700; }
+
+.resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px; 
+    cursor: col-resize; 
+    user-select: none; 
+    height: 100%;
+}
+
+.resizer:hover, .resizing {
+    border-right: 2px solid #CC1F29; /* Efek garis merah saat ditarik */
+}
+
+
+/* === MODAL GAMBAR (DENGAN SLIDER) === */
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; top: 0; width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.8); 
+    align-items: center; justify-content: center; 
+}
+.modal-content { max-width: 70%; max-height: 80%; border-radius: 8px; }
+.close-btn { 
+    position: absolute; top: 20px; right: 40px; 
+    color: white; font-size: 45px; cursor: pointer; 
+    font-weight: bold; transition: 0.3s;
+}
+.close-btn:hover { color: #bbb; }
+
+/* Tombol Next & Prev */
+.nav-btn { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    color: white; 
+    font-size: 50px; 
+    padding: 20px; 
+    cursor: pointer; 
+    user-select: none;
+    transition: 0.3s;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 8px;
+}
+.nav-btn:hover { background-color: rgba(0,0,0,0.9); }
+.nav-btn.prev { left: 20px; }
+.nav-btn.next { right: 20px; }
+
+/* === TOMBOL DENGAN GOOGLE ICONS === */
+.btn-cari, .btn-reset, .btn-cetak {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+    
+    /* Pengaturan untuk mensejajarkan Ikon Google dan Teks */
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 6px; 
+}
+/* Ukuran seragam untuk semua ikon Google Material */
+.material-symbols-outlined {
+    font-size: 18px !important;
+}
+
+/* Pewarnaan Masing-Masing Tombol */
+.btn-cari { background-color: #3B5B8D; color: white; }
+.btn-cari:hover { background-color: #2c446b; }
+
+.btn-reset { background-color: #6c757d; color: white; }
+.btn-reset:hover { background-color: #5a6268; }
+
+.btn-cetak { background-color: #CC1F29; color: white; }
+.btn-cetak:hover { background-color: #a01c29; }
+
+.btn-ambil {
+    background-color: #28A745; color: white; padding: 8px 15px;
+    border: none; cursor: pointer; border-radius: 4px;
+    font-weight: 600; font-size: 13px; display: inline-block;
+}
+.btn-ambil:hover { background-color: #218838; }
+
+/* ===================================================
+   DESAIN PREMIUM UNTUK MENU NAVBAR YANG AKTIF (ACTIVE)
+   =================================================== */
+
+/* --- A. UNTUK TOP NAVBAR (Tampilan Daman / Karyawan) --- */
+.top-navbar .nav-link {
+    /* Menambahkan animasi transisi halus untuk semua efek */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* Efek Kapsul Mengambang (Floating Capsule) */
+.top-navbar .nav-link.active {
+    background-color: #FFFFFF !important;      /* Latar belakang putih bersih */
+    color: #CC1F29 !important;                 /* Teks berubah menjadi warna merah utama */
+    font-weight: 800;
+    border-radius: 30px;                       /* Mengubah bentuk menjadi kapsul bulat sempurna */
+    padding: 8px 22px;                         /* Sedikit dilebarkan agar proporsional */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  /* Memberikan efek bayangan mengambang yang lembut */
+    transform: translateY(-1px);               /* Mengangkat tombol naik 1 pixel ke atas */
+}
+
+/* Efek hover opsional agar menu non-aktif juga sedikit interaktif saat didekati mouse */
+.top-navbar .nav-link:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+
+/* --- B. UNTUK SIDEBAR NAVBAR (Tampilan Manager) --- */
+.sidebar-navbar .nav-link {
+    /* Menambahkan animasi transisi halus */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 5px solid transparent;       /* Menyiapkan ruang border kiri transparan */
+}
+
+/* Efek Kaca Transparan (Glassmorphism) + Slide Indicator */
+.sidebar-navbar .nav-link.active {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02)) !important; /* Efek gradasi kaca */
+    color: #FFFFFF !important;
+    font-weight: 800;
+    border-left: 5px solid #FFC107 !important; /* Garis vertikal tebal warna emas menyala di kiri */
+    padding-left: 28px !important;             /* Menggeser teks ke kanan sedikit (Efek animasi mendorong) */
+    border-radius: 0 10px 10px 0;              /* Sudut melengkung halus hanya di sebelah kanan */
+    box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1); /* Efek kilau di bagian dalam */
+}
+
+/* Efek hover halus khusus menu sidebar non-aktif */
+.sidebar-navbar .nav-link:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.07);
+    padding-left: 24px; /* Memberikan efek dorong kecil saat di-hover */
+}

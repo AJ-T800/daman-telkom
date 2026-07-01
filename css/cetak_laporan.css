@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* BASE STYLES */
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+    font-size: 11px;
+    background-color: #ffffff;
+}
+
+/* PRINT MEDIA QUERIES (Set Kertas A4 & Cetak Rapi) */
+@media print {
+    @page {
+        size: A4 landscape; /* Memastikan Ukuran Kertas A4 Otomatis Landscape */
+        margin: 15mm 15mm 20mm 15mm;
+    }
+    .no-print {
+        display: none !important;
+    }
+    body {
+        font-size: 10px;
+        -webkit-print-color-adjust: exact !important; 
+        print-color-adjust: exact !important;
+    }
+    table {
+        page-break-inside: auto;
+    }
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    thead {
+        display: table-header-group; 
+    }
+    tfoot {
+        display: table-footer-group;
+    }
+    .signature-container {
+        page-break-inside: avoid; 
+    }
+}
+
+/* HEADER STYLES DENGAN LOGO DI KANAN */
+.header {
+    position: relative;
+    margin-bottom: 20px; 
+    padding-bottom: 15px;
+    border-bottom: 4px solid #EE2A24; /* Warna Merah Telkom */
+    min-height: 55px; /* Memberikan ruang aman untuk logo */
+}
+
+.header-logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px; /* Mengatur tinggi logo perusahaan */
+    width: auto;
+}
+
+.header-text {
+    text-align: center;
+    padding-left: 120px;  /* Menyeimbangkan posisi tengah */
+    padding-right: 120px; /* Agar teks tidak menabrak logo di kanan */
+}
+
+.header-text h2 {
+    margin: 0 0 5px 0;
+    color: #EE2A24;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.header-text h3 {
+    margin: 0 0 8px 0;
+    color: #333333;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.header-text p {
+    margin: 3px 0;
+    color: #666666;
+    font-size: 11px;
+}
+
+/* FILTER INFO STYLES */
+.filter-info {
+    margin-bottom: 15px;
+    font-style: italic;
+    font-weight: 600;
+    color: #555555;
+    background-color: #f8f9fa;
+    padding: 8px 12px;
+    border-left: 3px solid #EE2A24;
+    font-size: 11px;
+}
+
+/* BUTTONS STYLES */
+.no-print-container {
+    margin-bottom: 15px; 
+    background: #fff3cd; 
+    padding: 10px; 
+    border: 1px solid #ffeeba; 
+    border-radius: 4px;
+}
+.btn {
+    padding: 8px 18px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 12px;
+    margin-right: 8px;
+    transition: background-color 0.2s;
+}
+.btn-print { background-color: #28a745; } /* Hijau untuk manager sesuai file sumber */
+.btn-print:hover { background-color: #218838; }
+.btn-close { background-color: #6c757d; }
+.btn-close:hover { background-color: #5a6268; }
+
+
+/* TABLE STYLES */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+th, td {
+    border: 1px solid #cccccc;
+    padding: 7px 5px; /* Sedikit lebih padat karena kolom manager ada 14 */
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #EE2A24; 
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 9px; /* Lebih kecil sedikit agar muat 14 kolom */
+    letter-spacing: 0.5px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fbfbfb;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+td {
+    font-size: 9.5px; /* Sedikit lebih kecil agar teks tidak terlalu menumpuk */
+    word-wrap: break-word;
+}
+
+.status {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* SIGNATURE STYLES */
+.signature-container {
+    width: 100%;
+    margin-top: 40px;
+    display: table;
+    font-size: 12px;
+}
+
+.signature-box {
+    display: table-cell;
+    width: 100%; 
+    vertical-align: bottom;
+    text-align: right; /* Default manager rata kanan */
+    padding-right: 50px;
+}
+
+.signature-content {
+    display: inline-block;
+    text-align: center;
+}
+
+.signature-date {
+    margin-bottom: 70px; 
+    color: #333333;
+}
+
+.signature-name {
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    color: #333333;
+}
+
+.signature-title {
+    color: #555555;
+    font-style: italic;
+    line-height: 1.4; /* Agar baris gelar yang panjang lebih rapi */
+}

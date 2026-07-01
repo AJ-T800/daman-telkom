@@ -1,0 +1,185 @@
+/* Import font Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    margin: 0; 
+    background-color: #FAFAFA; 
+    color: #333; 
+}
+
+/* === NAVBAR === */
+.top-navbar { background-color: #CC1F29; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+.nav-left { display: flex; gap: 20px; }
+.nav-link { color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 4px; transition: 0.3s; }
+.nav-link:hover { background: rgba(255,255,255,0.2); }
+.nav-right .dropbtn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content { display: none; position: absolute; right: 0; background: white; min-width: 160px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; border-radius: 4px; }
+.dropdown-content a { color: #333; padding: 12px; text-decoration: none; display: block; font-size: 14px; }
+.dropdown-content a:hover { background-color: #f9f9f9; }
+.show { display: block; }
+
+/* === GLOBAL CONTAINER === */
+.main-container { padding: 20px 40px; width: 100%; box-sizing: border-box; }
+
+/* === DASHBOARD HEADER === */
+.dashboard-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ccc; padding-bottom: 15px; margin-bottom: 25px; }
+.header-logo { height: 40px; object-fit: contain; }
+
+/* === FILTER BOX === */
+.filter-box { background-color: #E9ECEF; padding: 20px; border-radius: 8px; display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 25px; width: 100%; box-sizing: border-box; }
+.filter-group { display: flex; flex-direction: column; gap: 5px; }
+.filter-group label { font-size: 13px; font-weight: 700; }
+.filter-group input, .filter-group select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
+
+/* === TABEL === */
+.table-responsive { width: 100%; overflow-x: auto; margin-bottom: 30px; }
+.table-custom { width: 100%; min-width: 1000px; border-collapse: collapse; background: white; box-shadow: 0 0 0 1px #ccc; }
+.table-custom th, .table-custom td { border: 1px solid #ccc; padding: 15px; font-size: 13px; white-space: nowrap; }
+.table-custom th { background: #E2E2E2; font-weight: 700; }
+
+/* === BUTTONS === */
+.btn-ambil { background-color: #28A745; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-weight: 600; cursor: pointer; border: none; }
+.btn-reset { background-color: #CC1F29; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-weight: 600; cursor: pointer; border: none; }
+.btn-cari { background-color: #3B5B8D; color: white; padding: 8px 15px; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; }
+
+/* Tambahkan ini di style.css */
+.btn-reset-yellow {
+    background-color: #FFC107; /* Kuning */
+    color: #000;              /* Teks hitam agar terbaca jelas di atas kuning */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-reset-yellow:hover {
+    background-color: #e0a800; /* Kuning sedikit lebih gelap saat hover */
+}
+
+/* ======================
+    SIDEBAR MANAGER
+====================== */
+/* === SIDEBAR KHUSUS MANAGER === */
+.sidebar-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh; /* Memanjang penuh ke bawah layar */
+    background-color: #CC1F29; /* Disamakan dengan warna navbar atas */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.sidebar-brand {
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+}
+
+.sidebar-brand h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: 800;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+    flex-grow: 1; /* Flex-grow memastikan menu bawah terdorong ke paling bawah */
+}
+
+.sidebar-navbar .nav-link {
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 12px 15px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.sidebar-navbar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-bottom {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-bottom .logout-link {
+    background-color: #dc3545;
+    text-align: center;
+}
+
+.sidebar-bottom .logout-link:hover {
+    background-color: #c82333;
+}
+
+/* ===================================================
+   DESAIN PREMIUM UNTUK MENU NAVBAR YANG AKTIF (ACTIVE)
+   =================================================== */
+
+/* --- A. UNTUK TOP NAVBAR (Tampilan Daman / Karyawan) --- */
+.top-navbar .nav-link {
+    /* Menambahkan animasi transisi halus untuk semua efek */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* Efek Kapsul Mengambang (Floating Capsule) */
+.top-navbar .nav-link.active {
+    background-color: #FFFFFF !important;      /* Latar belakang putih bersih */
+    color: #CC1F29 !important;                 /* Teks berubah menjadi warna merah utama */
+    font-weight: 800;
+    border-radius: 30px;                       /* Mengubah bentuk menjadi kapsul bulat sempurna */
+    padding: 8px 22px;                         /* Sedikit dilebarkan agar proporsional */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  /* Memberikan efek bayangan mengambang yang lembut */
+    transform: translateY(-1px);               /* Mengangkat tombol naik 1 pixel ke atas */
+}
+
+/* Efek hover opsional agar menu non-aktif juga sedikit interaktif saat didekati mouse */
+.top-navbar .nav-link:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+
+/* --- B. UNTUK SIDEBAR NAVBAR (Tampilan Manager) --- */
+.sidebar-navbar .nav-link {
+    /* Menambahkan animasi transisi halus */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 5px solid transparent;       /* Menyiapkan ruang border kiri transparan */
+}
+
+/* Efek Kaca Transparan (Glassmorphism) + Slide Indicator */
+.sidebar-navbar .nav-link.active {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02)) !important; /* Efek gradasi kaca */
+    color: #FFFFFF !important;
+    font-weight: 800;
+    border-left: 5px solid #FFC107 !important; /* Garis vertikal tebal warna emas menyala di kiri */
+    padding-left: 28px !important;             /* Menggeser teks ke kanan sedikit (Efek animasi mendorong) */
+    border-radius: 0 10px 10px 0;              /* Sudut melengkung halus hanya di sebelah kanan */
+    box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1); /* Efek kilau di bagian dalam */
+}
+
+/* Efek hover halus khusus menu sidebar non-aktif */
+.sidebar-navbar .nav-link:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.07);
+    padding-left: 24px; /* Memberikan efek dorong kecil saat di-hover */
+}
